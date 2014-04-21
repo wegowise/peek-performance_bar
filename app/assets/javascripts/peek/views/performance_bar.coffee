@@ -123,10 +123,10 @@ updateStatus = (html) ->
   $('#serverstats').html html
 
 ajaxStart = null
-$(document).on 'pjax:start page:fetch turbolinks:request-start', (event) ->
+$(document).on 'peek:start pjax:start page:fetch turbolinks:request-start', (event) ->
   ajaxStart = event.timeStamp
 
-$(document).on 'pjax:end page:load turbolinks:load', (event, xhr) ->
+$(document).on 'peek:end pjax:end page:load turbolinks:load', (event, xhr) ->
   return unless ajaxStart?
   ajaxEnd    = event.timeStamp
   total      = ajaxEnd - ajaxStart
